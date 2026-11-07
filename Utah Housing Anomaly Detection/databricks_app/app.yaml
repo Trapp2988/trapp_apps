@@ -1,0 +1,9 @@
+command:
+  - streamlit
+  - run
+  - app.py
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: ANOMALY_TABLE
+    value: workspace.utah_housing.housing_anomalies

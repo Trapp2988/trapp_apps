@@ -1,0 +1,7 @@
+folium
+matplotlib
+databricks-sdk>=0.29.0
+numpy
+pandas
+requests
+scikit-learn

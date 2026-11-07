@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dab681b650dbee0da996d81bbe7ff42f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dab681b650dbee0da996d81bbe7ff42f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dab681b650dbee0da996d81bbe7ff42f = L.map(
+                "map_dab681b650dbee0da996d81bbe7ff42f",
+                {
+                    center: [40.335808, -111.529396],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3c35bddab1603b3bc6ab0702575835ae = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3c35bddab1603b3bc6ab0702575835ae.addTo(map_dab681b650dbee0da996d81bbe7ff42f);
+        
+    
+            var feature_group_49576e50024bc82c27a994dd01303756 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_c3f1af868ed919bc5cc8afd29ee92b4d = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2e990a0f4eb89a2eda34670221673e41 = L.circleMarker(
+                [40.335808, -111.529396],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_c3f1af868ed919bc5cc8afd29ee92b4d);
+        
+    
+        var popup_350ea4789f7f971b343e9be2ef5e4a2f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f6af03b14df02cc025989778138c836 = $(`<div id="html_2f6af03b14df02cc025989778138c836" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $38,000,000<br>               Sq Ft: 22,958<br>               <a href="https://www.zillow.com/homedetails/5618-E-South-Fork-Rd-Provo-Canyon-UT-84604/122537467_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_350ea4789f7f971b343e9be2ef5e4a2f.setContent(html_2f6af03b14df02cc025989778138c836);
+            
+        
+
+        circle_marker_2e990a0f4eb89a2eda34670221673e41.bindPopup(popup_350ea4789f7f971b343e9be2ef5e4a2f)
+        ;
+
+        
+    
+    
+            circle_marker_2e990a0f4eb89a2eda34670221673e41.bindTooltip(
+                `<div>
+                     High-price anomaly • $38,000,000 • 22,958 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_c3f1af868ed919bc5cc8afd29ee92b4d.addTo(feature_group_49576e50024bc82c27a994dd01303756);
+        
+    
+            feature_group_49576e50024bc82c27a994dd01303756.addTo(map_dab681b650dbee0da996d81bbe7ff42f);
+        
+    
+            var feature_group_8cb59bf98489accc84fbb4b924084d00 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_d58d133c925d15965d121d414e8a1360 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_d58d133c925d15965d121d414e8a1360.addTo(feature_group_8cb59bf98489accc84fbb4b924084d00);
+        
+    
+            feature_group_8cb59bf98489accc84fbb4b924084d00.addTo(map_dab681b650dbee0da996d81bbe7ff42f);
+        
+    
+            var feature_group_bf61699fcfbe7657eaa185d347a653e2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_933392d18384d28dc7d402572920f352 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_933392d18384d28dc7d402572920f352.addTo(feature_group_bf61699fcfbe7657eaa185d347a653e2);
+        
+    
+            feature_group_bf61699fcfbe7657eaa185d347a653e2.addTo(map_dab681b650dbee0da996d81bbe7ff42f);
+        
+    
+            var layer_control_0dec4e137a0610a32311089177d3de7c_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_3c35bddab1603b3bc6ab0702575835ae,
+                },
+                overlays :  {
+                    "High-price anomaly" : feature_group_49576e50024bc82c27a994dd01303756,
+                    "Low-price anomaly" : feature_group_8cb59bf98489accc84fbb4b924084d00,
+                    "Unknown" : feature_group_bf61699fcfbe7657eaa185d347a653e2,
+                },
+            };
+            let layer_control_0dec4e137a0610a32311089177d3de7c = L.control.layers(
+                layer_control_0dec4e137a0610a32311089177d3de7c_layers.base_layers,
+                layer_control_0dec4e137a0610a32311089177d3de7c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_dab681b650dbee0da996d81bbe7ff42f);
+
+        
+</script>
+</html>

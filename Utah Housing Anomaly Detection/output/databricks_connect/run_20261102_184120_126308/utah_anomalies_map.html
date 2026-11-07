@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_79d956c5ac02f2315e1e1459f8e7732c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_79d956c5ac02f2315e1e1459f8e7732c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_79d956c5ac02f2315e1e1459f8e7732c = L.map(
+                "map_79d956c5ac02f2315e1e1459f8e7732c",
+                {
+                    center: [40.64664989999999, -111.82966333333333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8906ed113e2773a8187254ca915ef7e1 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u00a9 Esri \u2014 Sources: Esri, HERE, Garmin, USGS, Intermap, and the GIS User Community",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8906ed113e2773a8187254ca915ef7e1.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            var feature_group_a87a8197a85e3983cf8ce22f16e47d34 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_d00274f1286560e2f90e455f4c79aefd = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e5fbad5ebf195d2114a56df4c7fc8ed6 = L.circleMarker(
+                [40.79901, -111.88229],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_38bca8f80ff95cdc6236bf6f14f89b67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4693e69528862ff81ae0fb57454c8cdd = $(`<div id="html_4693e69528862ff81ae0fb57454c8cdd" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $6,950,000<br>               Sq Ft: 6,903<br>               <a href="https://www.zillow.com/homedetails/299-E-Oak-Forest-Rd-Salt-Lake-City-UT-84103/304738797_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_38bca8f80ff95cdc6236bf6f14f89b67.setContent(html_4693e69528862ff81ae0fb57454c8cdd);
+            
+        
+
+        circle_marker_e5fbad5ebf195d2114a56df4c7fc8ed6.bindPopup(popup_38bca8f80ff95cdc6236bf6f14f89b67)
+        ;
+
+        
+    
+    
+            circle_marker_e5fbad5ebf195d2114a56df4c7fc8ed6.bindTooltip(
+                `<div>
+                     High-price anomaly • $6,950,000 • 6,903 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f4ec29fb87bec47cb514b6d707d464e = L.circleMarker(
+                [40.64463, -111.81881],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_0c7878ac479a40ff31ef72dbfaf89db1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8159710dbde5051daa827802b9d32a7f = $(`<div id="html_8159710dbde5051daa827802b9d32a7f" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $16,900,000<br>               Sq Ft: 16,273<br>               <a href="https://www.zillow.com/homedetails/2550-E-Brentwood-Dr-Salt-Lake-City-UT-84121/12863086_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_0c7878ac479a40ff31ef72dbfaf89db1.setContent(html_8159710dbde5051daa827802b9d32a7f);
+            
+        
+
+        circle_marker_1f4ec29fb87bec47cb514b6d707d464e.bindPopup(popup_0c7878ac479a40ff31ef72dbfaf89db1)
+        ;
+
+        
+    
+    
+            circle_marker_1f4ec29fb87bec47cb514b6d707d464e.bindTooltip(
+                `<div>
+                     High-price anomaly • $16,900,000 • 16,273 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_239fe25439d3d545b9d88542606c71c1 = L.circleMarker(
+                [40.56614, -111.809875],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_12c8d38c04907dc58e6d1c6b12bd4c72 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfff1147da0d656fc98416cd26bd86e7 = $(`<div id="html_dfff1147da0d656fc98416cd26bd86e7" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $8,800,000<br>               Sq Ft: 10,598<br>               <a href="https://www.zillow.com/homedetails/10188-S-Dimple-Dell-Ln-Sandy-UT-84092/12919266_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_12c8d38c04907dc58e6d1c6b12bd4c72.setContent(html_dfff1147da0d656fc98416cd26bd86e7);
+            
+        
+
+        circle_marker_239fe25439d3d545b9d88542606c71c1.bindPopup(popup_12c8d38c04907dc58e6d1c6b12bd4c72)
+        ;
+
+        
+    
+    
+            circle_marker_239fe25439d3d545b9d88542606c71c1.bindTooltip(
+                `<div>
+                     High-price anomaly • $8,800,000 • 10,598 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d57497d819ff240e4450fe77bb06e541 = L.circleMarker(
+                [40.79679, -111.88132],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_aeedf09bc8a6ec27efacf6a2e4e18cee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfbce24e8ac296e9735408d37c78080a = $(`<div id="html_dfbce24e8ac296e9735408d37c78080a" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $7,390,000<br>               Sq Ft: 8,288<br>               <a href="https://www.zillow.com/homedetails/350-E-Capitol-Oaks-Ln-Salt-Lake-City-UT-84103/12717469_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_aeedf09bc8a6ec27efacf6a2e4e18cee.setContent(html_dfbce24e8ac296e9735408d37c78080a);
+            
+        
+
+        circle_marker_d57497d819ff240e4450fe77bb06e541.bindPopup(popup_aeedf09bc8a6ec27efacf6a2e4e18cee)
+        ;
+
+        
+    
+    
+            circle_marker_d57497d819ff240e4450fe77bb06e541.bindTooltip(
+                `<div>
+                     High-price anomaly • $7,390,000 • 8,288 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cac038847b85df65e0c23f58a455ed62 = L.circleMarker(
+                [40.58815, -111.64578],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_5a869a243ab886966deee03cf372cc5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ac39dbe2f5fc589861ae2abb4e8f2225 = $(`<div id="html_ac39dbe2f5fc589861ae2abb4e8f2225" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $4,500,000<br>               Sq Ft: 2,727<br>               <a href="https://www.zillow.com/homedetails/9870-E-Perruvian-Acre-Rd-Sandy-UT-84092/466229460_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_5a869a243ab886966deee03cf372cc5a.setContent(html_ac39dbe2f5fc589861ae2abb4e8f2225);
+            
+        
+
+        circle_marker_cac038847b85df65e0c23f58a455ed62.bindPopup(popup_5a869a243ab886966deee03cf372cc5a)
+        ;
+
+        
+    
+    
+            circle_marker_cac038847b85df65e0c23f58a455ed62.bindTooltip(
+                `<div>
+                     High-price anomaly • $4,500,000 • 2,727 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cfdc3ed4a8b5014a3470ca2d738b7b35 = L.circleMarker(
+                [40.6505, -111.821724],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_eca8060bef9d43d132ae77e3ba31fbfc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4b118a597eeea15372e4f3e09a55da3c = $(`<div id="html_4b118a597eeea15372e4f3e09a55da3c" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $7,900,000<br>               Sq Ft: 6,737<br>               <a href="https://www.zillow.com/homedetails/2400-E-Walker-Ln-Holladay-UT-84117/12862806_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_eca8060bef9d43d132ae77e3ba31fbfc.setContent(html_4b118a597eeea15372e4f3e09a55da3c);
+            
+        
+
+        circle_marker_cfdc3ed4a8b5014a3470ca2d738b7b35.bindPopup(popup_eca8060bef9d43d132ae77e3ba31fbfc)
+        ;
+
+        
+    
+    
+            circle_marker_cfdc3ed4a8b5014a3470ca2d738b7b35.bindTooltip(
+                `<div>
+                     High-price anomaly • $7,900,000 • 6,737 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ba0be211c3357e48ea6f6eb18395695 = L.circleMarker(
+                [40.593437, -111.62401],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_f02366b5ceca80f9f95a5c2c9cf9d81b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8720a4da1bce8e5519af15ffbc4ccd09 = $(`<div id="html_8720a4da1bce8e5519af15ffbc4ccd09" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $5,200,000<br>               Sq Ft: 3,076<br>               <a href="https://www.zillow.com/homedetails/8593-E-Albion-Basin-Rd-Sandy-UT-84092/442796026_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_f02366b5ceca80f9f95a5c2c9cf9d81b.setContent(html_8720a4da1bce8e5519af15ffbc4ccd09);
+            
+        
+
+        circle_marker_4ba0be211c3357e48ea6f6eb18395695.bindPopup(popup_f02366b5ceca80f9f95a5c2c9cf9d81b)
+        ;
+
+        
+    
+    
+            circle_marker_4ba0be211c3357e48ea6f6eb18395695.bindTooltip(
+                `<div>
+                     High-price anomaly • $5,200,000 • 3,076 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ec1454ca701b9afefe1ea5fd512e798 = L.circleMarker(
+                [40.67306, -111.78639],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_6f40e149e33d6b008fc26995f72279a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d3bf07c2cefb923ca22fb13f50a9066d = $(`<div id="html_d3bf07c2cefb923ca22fb13f50a9066d" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $10,700,000<br>               Sq Ft: 10,275<br>               <a href="https://www.zillow.com/homedetails/3898-E-Thousand-Oaks-Cir-Salt-Lake-City-UT-84124/12849512_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_6f40e149e33d6b008fc26995f72279a2.setContent(html_d3bf07c2cefb923ca22fb13f50a9066d);
+            
+        
+
+        circle_marker_4ec1454ca701b9afefe1ea5fd512e798.bindPopup(popup_6f40e149e33d6b008fc26995f72279a2)
+        ;
+
+        
+    
+    
+            circle_marker_4ec1454ca701b9afefe1ea5fd512e798.bindTooltip(
+                `<div>
+                     High-price anomaly • $10,700,000 • 10,275 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ceeb1fc1616ac2eac9692443f8425bc = L.circleMarker(
+                [40.52673, -111.83594],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_f7f6d485652a3e7900dc9ffab687d564 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a388c874cb68dcce45510dbe3cbea3f1 = $(`<div id="html_a388c874cb68dcce45510dbe3cbea3f1" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $6,300,000<br>               Sq Ft: 10,437<br>               <a href="https://www.zillow.com/homedetails/12308-S-Mariah-Cir-E-Draper-UT-84020/2069663156_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_f7f6d485652a3e7900dc9ffab687d564.setContent(html_a388c874cb68dcce45510dbe3cbea3f1);
+            
+        
+
+        circle_marker_3ceeb1fc1616ac2eac9692443f8425bc.bindPopup(popup_f7f6d485652a3e7900dc9ffab687d564)
+        ;
+
+        
+    
+    
+            circle_marker_3ceeb1fc1616ac2eac9692443f8425bc.bindTooltip(
+                `<div>
+                     High-price anomaly • $6,300,000 • 10,437 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_062ec5811a5fbf82ff3de49c05a7b1d9 = L.circleMarker(
+                [40.68601, -111.78573],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_149ca10bb838062c1b42d9b2e59c5d80 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8341349cdfc8734727caab5b5f987300 = $(`<div id="html_8341349cdfc8734727caab5b5f987300" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $5,995,000<br>               Sq Ft: 7,172<br>               <a href="https://www.zillow.com/homedetails/3941-S-Mount-Olympus-Way-Salt-Lake-City-UT-84124/12797147_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_149ca10bb838062c1b42d9b2e59c5d80.setContent(html_8341349cdfc8734727caab5b5f987300);
+            
+        
+
+        circle_marker_062ec5811a5fbf82ff3de49c05a7b1d9.bindPopup(popup_149ca10bb838062c1b42d9b2e59c5d80)
+        ;
+
+        
+    
+    
+            circle_marker_062ec5811a5fbf82ff3de49c05a7b1d9.bindTooltip(
+                `<div>
+                     High-price anomaly • $5,995,000 • 7,172 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7d7c779632aca74b94dace0fccd53d12 = L.circleMarker(
+                [40.57567, -111.78854],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_e217f9760a5aed0dccbd69f7ef6c6638 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5c1f2f82966786397fa6b51fb3071a2b = $(`<div id="html_5c1f2f82966786397fa6b51fb3071a2b" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $5,950,000<br>               Sq Ft: 7,454<br>               <a href="https://www.zillow.com/homedetails/9653-S-Quail-Hill-Ln-Sandy-UT-84092/352514923_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_e217f9760a5aed0dccbd69f7ef6c6638.setContent(html_5c1f2f82966786397fa6b51fb3071a2b);
+            
+        
+
+        circle_marker_7d7c779632aca74b94dace0fccd53d12.bindPopup(popup_e217f9760a5aed0dccbd69f7ef6c6638)
+        ;
+
+        
+    
+    
+            circle_marker_7d7c779632aca74b94dace0fccd53d12.bindTooltip(
+                `<div>
+                     High-price anomaly • $5,950,000 • 7,454 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50c1aeac9d34e378633c7ee612d3b7af = L.circleMarker(
+                [40.76913, -111.89347],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_cf2102f0435afedb45af02f3633e2053 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79ec9429a3d541981d3b2b6258ec8524 = $(`<div id="html_79ec9429a3d541981d3b2b6258ec8524" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $4,200,000<br>               Sq Ft: 3,093<br>               <a href="https://www.zillow.com/homedetails/99-W-South-Temple-St-2005-Salt-Lake-City-UT-84101/118556148_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_cf2102f0435afedb45af02f3633e2053.setContent(html_79ec9429a3d541981d3b2b6258ec8524);
+            
+        
+
+        circle_marker_50c1aeac9d34e378633c7ee612d3b7af.bindPopup(popup_cf2102f0435afedb45af02f3633e2053)
+        ;
+
+        
+    
+    
+            circle_marker_50c1aeac9d34e378633c7ee612d3b7af.bindTooltip(
+                `<div>
+                     High-price anomaly • $4,200,000 • 3,093 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9dbfe0cef53cee85560b090f346c5686 = L.circleMarker(
+                [40.63687, -111.86059],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_9ecddc30598563b22346c0c2d7767b2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5f375e92a237837e8bf8f6865f9159a = $(`<div id="html_b5f375e92a237837e8bf8f6865f9159a" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $10,650,000<br>               Sq Ft: 9,187<br>               <a href="https://www.zillow.com/homedetails/6288-S-Moffat-Farm-Ln-Salt-Lake-City-UT-84121/97758874_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_9ecddc30598563b22346c0c2d7767b2b.setContent(html_b5f375e92a237837e8bf8f6865f9159a);
+            
+        
+
+        circle_marker_9dbfe0cef53cee85560b090f346c5686.bindPopup(popup_9ecddc30598563b22346c0c2d7767b2b)
+        ;
+
+        
+    
+    
+            circle_marker_9dbfe0cef53cee85560b090f346c5686.bindTooltip(
+                `<div>
+                     High-price anomaly • $10,650,000 • 9,187 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d78529dd6b798a290de786eabf78ec9 = L.circleMarker(
+                [40.719654, -111.80496],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_9cc9e23c2f6c567e5bdcd361701d91c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f27134b91891f9d429c709664c741215 = $(`<div id="html_f27134b91891f9d429c709664c741215" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $7,995,000<br>               Sq Ft: 7,761<br>               <a href="https://www.zillow.com/homedetails/2379-S-Cannon-Point-Dr-Salt-Lake-City-UT-84109/2056043366_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_9cc9e23c2f6c567e5bdcd361701d91c5.setContent(html_f27134b91891f9d429c709664c741215);
+            
+        
+
+        circle_marker_2d78529dd6b798a290de786eabf78ec9.bindPopup(popup_9cc9e23c2f6c567e5bdcd361701d91c5)
+        ;
+
+        
+    
+    
+            circle_marker_2d78529dd6b798a290de786eabf78ec9.bindTooltip(
+                `<div>
+                     High-price anomaly • $7,995,000 • 7,761 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_650635dc176f47f1ca9a91514913d3dd = L.circleMarker(
+                [40.637875, -111.81633],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_d00274f1286560e2f90e455f4c79aefd);
+        
+    
+        var popup_4ff123ed0351f07c07a683dc9f9c45a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da10965e9f5b2790210623c5ec875d41 = $(`<div id="html_da10965e9f5b2790210623c5ec875d41" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>High-price anomaly</b><br>               Price: $3,499,000<br>               Sq Ft: 3,516<br>               <a href="https://www.zillow.com/homedetails/2652-E-6200-S-Holladay-UT-84121/63342552_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_4ff123ed0351f07c07a683dc9f9c45a6.setContent(html_da10965e9f5b2790210623c5ec875d41);
+            
+        
+
+        circle_marker_650635dc176f47f1ca9a91514913d3dd.bindPopup(popup_4ff123ed0351f07c07a683dc9f9c45a6)
+        ;
+
+        
+    
+    
+            circle_marker_650635dc176f47f1ca9a91514913d3dd.bindTooltip(
+                `<div>
+                     High-price anomaly • $3,499,000 • 3,516 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_d00274f1286560e2f90e455f4c79aefd.addTo(feature_group_a87a8197a85e3983cf8ce22f16e47d34);
+        
+    
+            feature_group_a87a8197a85e3983cf8ce22f16e47d34.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            var feature_group_8f7ddc07fe83be5e7391736a07d671c5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_2319eda9f21e0ccc0723941bff50be5e = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ee618358f206a5ec0a28b9d299be3881 = L.circleMarker(
+                [40.79612, -111.88384],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_3821904d83ecfaf42aea20c4d994c45e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79bf99fc3f902f64a4fd074505117af7 = $(`<div id="html_79bf99fc3f902f64a4fd074505117af7" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $4,500,000<br>               Sq Ft: 11,718<br>               <a href="https://www.zillow.com/homedetails/1201-N-Oak-Forest-Rd-Salt-Lake-City-UT-84103/12717418_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_3821904d83ecfaf42aea20c4d994c45e.setContent(html_79bf99fc3f902f64a4fd074505117af7);
+            
+        
+
+        circle_marker_ee618358f206a5ec0a28b9d299be3881.bindPopup(popup_3821904d83ecfaf42aea20c4d994c45e)
+        ;
+
+        
+    
+    
+            circle_marker_ee618358f206a5ec0a28b9d299be3881.bindTooltip(
+                `<div>
+                     Low-price anomaly • $4,500,000 • 11,718 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70598038d18471564bf56c5aacfd4c53 = L.circleMarker(
+                [40.54523, -111.81626],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_a65fb78c455b1bfdc68d92ebf380e42d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03c86770dba4f146cc70b7c9955aaacd = $(`<div id="html_03c86770dba4f146cc70b7c9955aaacd" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $3,900,000<br>               Sq Ft: 13,474<br>               <a href="https://www.zillow.com/homedetails/18-Snow-Forest-Ln-Sandy-UT-84092/445570615_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_a65fb78c455b1bfdc68d92ebf380e42d.setContent(html_03c86770dba4f146cc70b7c9955aaacd);
+            
+        
+
+        circle_marker_70598038d18471564bf56c5aacfd4c53.bindPopup(popup_a65fb78c455b1bfdc68d92ebf380e42d)
+        ;
+
+        
+    
+    
+            circle_marker_70598038d18471564bf56c5aacfd4c53.bindTooltip(
+                `<div>
+                     Low-price anomaly • $3,900,000 • 13,474 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42507345f653a41aa69e01c8f319eddd = L.circleMarker(
+                [40.747993, -111.80843],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_09364875eb4f638c5071f332fcf42042 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_161c80ae100ce08fe6d40d1d90434f9d = $(`<div id="html_161c80ae100ce08fe6d40d1d90434f9d" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $6,610,000<br>               Sq Ft: 14,653<br>               <a href="https://www.zillow.com/homedetails/2864-E-Kennedy-Dr-S-Salt-Lake-City-UT-84108/465735073_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_09364875eb4f638c5071f332fcf42042.setContent(html_161c80ae100ce08fe6d40d1d90434f9d);
+            
+        
+
+        circle_marker_42507345f653a41aa69e01c8f319eddd.bindPopup(popup_09364875eb4f638c5071f332fcf42042)
+        ;
+
+        
+    
+    
+            circle_marker_42507345f653a41aa69e01c8f319eddd.bindTooltip(
+                `<div>
+                     Low-price anomaly • $6,610,000 • 14,653 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8771e199ff0a4f9a0ad6d19b4150ab27 = L.circleMarker(
+                [40.49788, -111.97915],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_d108e26d27dd092c715879667ad9046c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4060627f009885e2600b16b884a9c46 = $(`<div id="html_b4060627f009885e2600b16b884a9c46" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,999,000<br>               Sq Ft: 10,371<br>               <a href="https://www.zillow.com/homedetails/3702-W-Wasatch-Dr-Riverton-UT-84065/453564314_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_d108e26d27dd092c715879667ad9046c.setContent(html_b4060627f009885e2600b16b884a9c46);
+            
+        
+
+        circle_marker_8771e199ff0a4f9a0ad6d19b4150ab27.bindPopup(popup_d108e26d27dd092c715879667ad9046c)
+        ;
+
+        
+    
+    
+            circle_marker_8771e199ff0a4f9a0ad6d19b4150ab27.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,999,000 • 10,371 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ffb3afffffae0d6d0f6b5a33d3656cf = L.circleMarker(
+                [40.63492, -111.79574],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_5baaa32582dfffe21a7941eeffd76c22 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76631f9bf3577b0a79a5528ffa48fcfb = $(`<div id="html_76631f9bf3577b0a79a5528ffa48fcfb" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,895,000<br>               Sq Ft: 5,660<br>               <a href="https://www.zillow.com/homedetails/6394-S-Canyon-Cove-Dr-Holladay-UT-84121/12872992_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_5baaa32582dfffe21a7941eeffd76c22.setContent(html_76631f9bf3577b0a79a5528ffa48fcfb);
+            
+        
+
+        circle_marker_4ffb3afffffae0d6d0f6b5a33d3656cf.bindPopup(popup_5baaa32582dfffe21a7941eeffd76c22)
+        ;
+
+        
+    
+    
+            circle_marker_4ffb3afffffae0d6d0f6b5a33d3656cf.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,895,000 • 5,660 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_373b26f39f8ee78f9400b850e145ddba = L.circleMarker(
+                [40.589848, -111.806366],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_726f0d32dcf082cd093dc867ea2188a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b7f73b4400cb37b6fde7cd653393711d = $(`<div id="html_b7f73b4400cb37b6fde7cd653393711d" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $3,350,900<br>               Sq Ft: 10,484<br>               <a href="https://www.zillow.com/homedetails/8908-S-Cobble-Canyon-Cir-Sandy-UT-84093/12907423_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_726f0d32dcf082cd093dc867ea2188a8.setContent(html_b7f73b4400cb37b6fde7cd653393711d);
+            
+        
+
+        circle_marker_373b26f39f8ee78f9400b850e145ddba.bindPopup(popup_726f0d32dcf082cd093dc867ea2188a8)
+        ;
+
+        
+    
+    
+            circle_marker_373b26f39f8ee78f9400b850e145ddba.bindTooltip(
+                `<div>
+                     Low-price anomaly • $3,350,900 • 10,484 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d067b18f236fa5927f19abf0876a3f11 = L.circleMarker(
+                [40.736977, -111.8115],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_05e9e411aca17d74d967f3d7bea61ce9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1bea73f152266c97e5fd32fc2ec53f67 = $(`<div id="html_1bea73f152266c97e5fd32fc2ec53f67" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $3,750,000<br>               Sq Ft: 14,233<br>               <a href="https://www.zillow.com/homedetails/2790-E-Lancaster-Dr-S-Salt-Lake-City-UT-84108/458614426_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_05e9e411aca17d74d967f3d7bea61ce9.setContent(html_1bea73f152266c97e5fd32fc2ec53f67);
+            
+        
+
+        circle_marker_d067b18f236fa5927f19abf0876a3f11.bindPopup(popup_05e9e411aca17d74d967f3d7bea61ce9)
+        ;
+
+        
+    
+    
+            circle_marker_d067b18f236fa5927f19abf0876a3f11.bindTooltip(
+                `<div>
+                     Low-price anomaly • $3,750,000 • 14,233 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7da222848794c7fdd15209c41a3cc4ec = L.circleMarker(
+                [40.57192, -111.958885],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_c5e4e5f75555bf3b4f7d08c24b047576 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96678dd408b1869993cdd256afd85333 = $(`<div id="html_96678dd408b1869993cdd256afd85333" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,150,000<br>               Sq Ft: 6,634<br>               <a href="https://www.zillow.com/homedetails/2737-W-9850-S-South-Jordan-UT-84095/12896989_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_c5e4e5f75555bf3b4f7d08c24b047576.setContent(html_96678dd408b1869993cdd256afd85333);
+            
+        
+
+        circle_marker_7da222848794c7fdd15209c41a3cc4ec.bindPopup(popup_c5e4e5f75555bf3b4f7d08c24b047576)
+        ;
+
+        
+    
+    
+            circle_marker_7da222848794c7fdd15209c41a3cc4ec.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,150,000 • 6,634 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfc71c40bdd0505eed80dc11b9dd05e2 = L.circleMarker(
+                [40.64056, -111.8533],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_9c129d3e73f4acac518f98fc78b758e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_88c57d29ee8b2c225181e9d24d9cfafc = $(`<div id="html_88c57d29ee8b2c225181e9d24d9cfafc" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,499,000<br>               Sq Ft: 7,366<br>               <a href="https://www.zillow.com/homedetails/1349-E-Vine-St-Murray-UT-84121/12865979_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_9c129d3e73f4acac518f98fc78b758e6.setContent(html_88c57d29ee8b2c225181e9d24d9cfafc);
+            
+        
+
+        circle_marker_dfc71c40bdd0505eed80dc11b9dd05e2.bindPopup(popup_9c129d3e73f4acac518f98fc78b758e6)
+        ;
+
+        
+    
+    
+            circle_marker_dfc71c40bdd0505eed80dc11b9dd05e2.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,499,000 • 7,366 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_36b31d1aeb1617576c751d907eadc8ad = L.circleMarker(
+                [40.7593, -111.77292],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_2f2fa6a3cccf0577af7963d78c97cce5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e9e7b9649243037a640b94dcf562aa1 = $(`<div id="html_1e9e7b9649243037a640b94dcf562aa1" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,549,999<br>               Sq Ft: 6,173<br>               <a href="https://www.zillow.com/homedetails/4503-E-Crystal-Hill-Cir-Salt-Lake-City-UT-84108/12797242_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_2f2fa6a3cccf0577af7963d78c97cce5.setContent(html_1e9e7b9649243037a640b94dcf562aa1);
+            
+        
+
+        circle_marker_36b31d1aeb1617576c751d907eadc8ad.bindPopup(popup_2f2fa6a3cccf0577af7963d78c97cce5)
+        ;
+
+        
+    
+    
+            circle_marker_36b31d1aeb1617576c751d907eadc8ad.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,549,999 • 6,173 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e6ac157cfca3330567d8e3d4ac5fec4 = L.circleMarker(
+                [40.7232, -111.70963],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_5834b28c313e01b0b639b242e3619ae2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8f09952f90cc793d93e538dae166b283 = $(`<div id="html_8f09952f90cc793d93e538dae166b283" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,300,000<br>               Sq Ft: 3,352<br>               <a href="https://www.zillow.com/homedetails/7180-Canyon-Haven-Ln-317-Salt-Lake-City-UT-84109/463598528_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_5834b28c313e01b0b639b242e3619ae2.setContent(html_8f09952f90cc793d93e538dae166b283);
+            
+        
+
+        circle_marker_5e6ac157cfca3330567d8e3d4ac5fec4.bindPopup(popup_5834b28c313e01b0b639b242e3619ae2)
+        ;
+
+        
+    
+    
+            circle_marker_5e6ac157cfca3330567d8e3d4ac5fec4.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,300,000 • 3,352 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0939de5c8582abb5966a4ff06c477e5 = L.circleMarker(
+                [40.457733, -112.07161],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_624b00268f2f8577067c0346dea08cf5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_57125d6b6c26b3e502bed540c08544f1 = $(`<div id="html_57125d6b6c26b3e502bed540c08544f1" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $749,000<br>               Sq Ft: 5,452<br>               <a href="https://www.zillow.com/homedetails/16129-S-Step-Down-Rd-W-Herriman-UT-84096/2072634014_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_624b00268f2f8577067c0346dea08cf5.setContent(html_57125d6b6c26b3e502bed540c08544f1);
+            
+        
+
+        circle_marker_d0939de5c8582abb5966a4ff06c477e5.bindPopup(popup_624b00268f2f8577067c0346dea08cf5)
+        ;
+
+        
+    
+    
+            circle_marker_d0939de5c8582abb5966a4ff06c477e5.bindTooltip(
+                `<div>
+                     Low-price anomaly • $749,000 • 5,452 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d4754b30672608630225fa2be4895a2 = L.circleMarker(
+                [40.780926, -111.74589],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_a6806a27e740a7b9fc60b43ce7318dfb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16d677bd35ddd4da1b71a90208531b87 = $(`<div id="html_16d677bd35ddd4da1b71a90208531b87" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $2,000,000<br>               Sq Ft: 5,420<br>               <a href="https://www.zillow.com/homedetails/5632-E-Pioneer-Fork-Rd-Salt-Lake-City-UT-84108/80277088_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_a6806a27e740a7b9fc60b43ce7318dfb.setContent(html_16d677bd35ddd4da1b71a90208531b87);
+            
+        
+
+        circle_marker_2d4754b30672608630225fa2be4895a2.bindPopup(popup_a6806a27e740a7b9fc60b43ce7318dfb)
+        ;
+
+        
+    
+    
+            circle_marker_2d4754b30672608630225fa2be4895a2.bindTooltip(
+                `<div>
+                     Low-price anomaly • $2,000,000 • 5,420 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfeb80ece96654c8225fc6db39a95c2d = L.circleMarker(
+                [40.54298, -111.9645],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_105961228d2b975cc90f8d79e3514cb3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b12bb048e50d959a6f226da16ba4346d = $(`<div id="html_b12bb048e50d959a6f226da16ba4346d" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,600,000<br>               Sq Ft: 7,148<br>               <a href="https://www.zillow.com/homedetails/11469-S-Tara-Woods-Ln-South-Jordan-UT-84095/55442987_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_105961228d2b975cc90f8d79e3514cb3.setContent(html_b12bb048e50d959a6f226da16ba4346d);
+            
+        
+
+        circle_marker_bfeb80ece96654c8225fc6db39a95c2d.bindPopup(popup_105961228d2b975cc90f8d79e3514cb3)
+        ;
+
+        
+    
+    
+            circle_marker_bfeb80ece96654c8225fc6db39a95c2d.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,600,000 • 7,148 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eb5858918a023bb7794e192e79d343f8 = L.circleMarker(
+                [40.510254, -111.85612],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_2319eda9f21e0ccc0723941bff50be5e);
+        
+    
+        var popup_67d7c6373931d5a9aa3b12dc880e25ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b5c840f2192d509e062454249d6b80b = $(`<div id="html_0b5c840f2192d509e062454249d6b80b" style="width: 100.0%; height: 100.0%;">             <div style="font-size:14px;">               <b>Low-price anomaly</b><br>               Price: $1,448,000<br>               Sq Ft: 7,098<br>               <a href="https://www.zillow.com/homedetails/1209-E-Bear-Hollow-Cv-Draper-UT-84020/12931989_zpid/" target="_blank">Open listing</a>             </div>             </div>`)[0];
+                popup_67d7c6373931d5a9aa3b12dc880e25ee.setContent(html_0b5c840f2192d509e062454249d6b80b);
+            
+        
+
+        circle_marker_eb5858918a023bb7794e192e79d343f8.bindPopup(popup_67d7c6373931d5a9aa3b12dc880e25ee)
+        ;
+
+        
+    
+    
+            circle_marker_eb5858918a023bb7794e192e79d343f8.bindTooltip(
+                `<div>
+                     Low-price anomaly • $1,448,000 • 7,098 sqft
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_2319eda9f21e0ccc0723941bff50be5e.addTo(feature_group_8f7ddc07fe83be5e7391736a07d671c5);
+        
+    
+            feature_group_8f7ddc07fe83be5e7391736a07d671c5.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            var feature_group_8d5f0a4c9b734a9a07dcc963fa86c009 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_2135caae94fdf6b63d70d233c7a856e2 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_2135caae94fdf6b63d70d233c7a856e2.addTo(feature_group_8d5f0a4c9b734a9a07dcc963fa86c009);
+        
+    
+            feature_group_8d5f0a4c9b734a9a07dcc963fa86c009.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            var layer_control_2f4c75186d3deeec10addc80cefa04f3_layers = {
+                base_layers : {
+                    "https://server.arcgisonline.com/arcgis/rest/services/world_street_map/mapserver/tile/{z}/{y}/{x}" : tile_layer_8906ed113e2773a8187254ca915ef7e1,
+                },
+                overlays :  {
+                    "High-price anomaly" : feature_group_a87a8197a85e3983cf8ce22f16e47d34,
+                    "Low-price anomaly" : feature_group_8f7ddc07fe83be5e7391736a07d671c5,
+                    "Unknown" : feature_group_8d5f0a4c9b734a9a07dcc963fa86c009,
+                },
+            };
+            let layer_control_2f4c75186d3deeec10addc80cefa04f3 = L.control.layers(
+                layer_control_2f4c75186d3deeec10addc80cefa04f3_layers.base_layers,
+                layer_control_2f4c75186d3deeec10addc80cefa04f3_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+
+        
+    
+            tile_layer_8906ed113e2773a8187254ca915ef7e1.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            marker_cluster_d00274f1286560e2f90e455f4c79aefd.addTo(feature_group_a87a8197a85e3983cf8ce22f16e47d34);
+        
+    
+            feature_group_a87a8197a85e3983cf8ce22f16e47d34.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            marker_cluster_2319eda9f21e0ccc0723941bff50be5e.addTo(feature_group_8f7ddc07fe83be5e7391736a07d671c5);
+        
+    
+            feature_group_8f7ddc07fe83be5e7391736a07d671c5.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+    
+            marker_cluster_2135caae94fdf6b63d70d233c7a856e2.addTo(feature_group_8d5f0a4c9b734a9a07dcc963fa86c009);
+        
+    
+            feature_group_8d5f0a4c9b734a9a07dcc963fa86c009.addTo(map_79d956c5ac02f2315e1e1459f8e7732c);
+        
+</script>
+</html>

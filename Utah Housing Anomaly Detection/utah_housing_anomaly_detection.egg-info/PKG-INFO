@@ -1,0 +1,237 @@
+Metadata-Version: 2.4
+Name: utah-housing-anomaly-detection
+Version: 0.1.0
+Summary: Detect Utah housing listing price anomalies with regression.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: folium
+Requires-Dist: matplotlib
+Requires-Dist: databricks-sdk>=0.29.0
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: scikit-learn
+
+# Utah Housing Anomaly Detection
+
+Python tools for detecting anomalous Utah home listing prices.
+
+## Install
+
+Install the project from a checkout:
+
+```powershell
+python -m pip install .
+```
+
+Build a wheel into `dist`:
+
+```powershell
+python -m pip install build
+python -m build --wheel
+```
+
+Install the resulting wheel with:
+
+```powershell
+python -m pip install dist\utah_housing_anomaly_detection-0.1.0-py3-none-any.whl
+```
+
+## Run the regression pipeline
+
+```powershell
+utah-housing-anomaly --csv path\to\listings.csv --local
+```
+
+Or select `listings.csv` or the newest `zillow_*.csv` file in a directory:
+
+```powershell
+utah-housing-anomaly --csv-dir path\to\zillow_csvs --local
+```
+
+`--local` writes results to an `output` folder under the current working
+directory. The folder is created if needed. The output files are
+`anomalies.csv`, `predicted_vs_actual.png`, `anomalies_scatter.png`, and
+`utah_anomalies_map.html` (the map is written when anomalies have coordinates).
+Use `--out path\to\folder` instead to choose a different output location; do
+not combine `--local` and `--out`.
+
+The local pipeline, Zillow extractor, and Databricks Connect check write
+timestamped logs under `output\logs`, for example
+`pipeline_20261101_173000_123456.log`.
+
+The pipeline analyzes every listing with a valid positive price, with no upper
+price cutoff. It writes the anomaly table, plots, and (when coordinates are
+available) an interactive map to the output directory.
+The map uses Esri World Street Map tiles instead of the OpenStreetMap standard
+tile server; opening the HTML requires an internet connection to load those
+tiles.
+
+## Use Zillow listings
+
+The Zillow extractor accepts `OWN_API_KEY` or `API_KEY` from the process
+environment or from this project's `.env` file. Keep the key private.
+
+Fetch listings for both counties. When a result set reaches the API page limit,
+the extractor splits the query into price ranges:
+
+```powershell
+python zillow_extract.py pull-counties --counties "Salt Lake County, UT" "Utah County, UT" --max-pages 20
+```
+
+The extractor saves results to `listings.csv`. `data_prep.py` maps Zillow
+fields such as `price`, `livingArea`, `homeType`, `daysOnZillow`, and
+`detailUrl` into the pipeline's modeling columns. Lot areas reported in acres
+are converted to square feet. Year built and HOA are optional because Zillow
+search results may omit them.
+
+Run the pipeline on those downloaded listings and save the results locally:
+
+```powershell
+python pipeline.py --csv listings.csv --local
+```
+
+The repository includes a small example response sample in
+`zillow_county_sample.csv` and its normalized form in
+`zillow_county_sample_prepared.csv`.
+
+To use it from Python:
+
+```python
+import pandas as pd
+from pipeline import run
+
+results = run(pd.read_csv("listings.csv"), output_dir="output")
+```
+
+The Zillow extraction utility is also installed as the `zillow_extract` module.
+Set `OWN_API_KEY` in the environment before making API requests; do not put API
+keys in the package or source files.
+
+### Run from local Databricks Connect
+
+The package includes a Python wheel task entry point,
+`utah-housing-databricks-job`. Each run fetches current Zillow listings from the
+OpenWeb Ninja API for Salt Lake and Utah counties, refreshes the
+`workspace.utah_housing.zillow_listings` Delta table, analyzes those listings,
+appends anomaly rows to `workspace.utah_housing.housing_anomalies`, and uploads
+the CSV, figures, and timestamped logs to
+`/Volumes/workspace/utah_housing/utah_housing`.
+
+Every successful API page is also appended immediately to
+`workspace.utah_housing.zillow_listings_ingest` (or
+`<source-table>_ingest` when `--source-table` is changed). This recovery table
+stores each listing as JSON along with its `run_id`, county, and status, so
+pages fetched before a later API or pipeline error remain available in Delta.
+The regular listings table is refreshed only after the county fetch completes.
+Use `--ingest-table` to choose another recovery table.
+To resume analysis from a saved partial run without making more API requests,
+pass its ID using `--ingest-run-id`, for example:
+
+```powershell
+.\.venv-dbx\Scripts\utah-housing-databricks-job.exe --mode connect --profile UTAH --serverless --ingest-run-id 20261101_191741_644618
+```
+
+Set `OWN_API_KEY` (or `API_KEY`) in the process environment or in the project
+root `.env` file. Keep the key private. The source Delta table is overwritten
+with the fetched listings each run; the anomaly table remains append-only and
+has a `run_id` column. A fresh API fetch is the default. Pass `--use-cache` to
+reuse cached API pages during development.
+If OpenWeb Ninja returns HTTP 401, check the API key's validity and account
+access; 403 and 429 responses also stop immediately rather than triggering
+pagination splits and extra requests.
+
+Launch the full API-to-Delta-to-anomalies pipeline through Databricks Connect
+from PowerShell:
+
+```powershell
+.\.venv-dbx\Scripts\utah-housing-databricks-job.exe --mode connect --profile UTAH --serverless
+```
+
+The API request runs in the Python process launching the command; Spark writes
+the fetched listings and anomalies remotely through Connect. The client stages
+artifacts locally under `output\databricks_connect` and then uploads them to the
+configured Unity Catalog volume. Use `--counties`, `--status`, and
+`--max-pages` to change the API query; use `--source-table`, `--anomaly-table`,
+and `--output-volume` to change destinations. Connect collects the refreshed
+source table to pandas for model fitting, so scikit-learn runs on the local
+Python client. Use a serverless Job if model fitting itself must execute on
+Databricks compute.
+
+### Run as a Databricks serverless Job
+
+The wheel task also fetches Zillow data from the OpenWeb Ninja API, so configure
+`OWN_API_KEY` as a secret-backed environment variable for the task. It refreshes
+the listings table before analysis. The regression uses pandas and scikit-learn,
+so the source table is collected to the serverless job's Python driver before
+fitting; model fitting is not distributed across Spark workers. Ensure the
+source table fits in the job driver's available memory. The anomaly table is
+append-only and includes a `run_id` column so results from separate runs can be
+identified.
+
+Build the wheel from the project directory:
+
+```powershell
+python -m pip install build
+python -m build --wheel
+```
+
+Upload the resulting wheel to a Unity Catalog volume or workspace files area.
+In Databricks, create a Job with serverless compute and a **Python wheel** task.
+Set the task parameters to `--mode job` to use the native Spark session:
+
+- Package name: `utah-housing-anomaly-detection`
+- Entry point: `utah-housing-databricks-job`
+- Library: the uploaded `dist\utah_housing_anomaly_detection-0.1.0-py3-none-any.whl`
+
+The task's service principal or run-as identity needs permission to create or
+overwrite the listings table, `USE CATALOG`/`USE SCHEMA` and table write
+privileges for the anomaly table, and read/write access to the output volume.
+The API key must be supplied through a Databricks secret-backed environment
+variable; the local `.env` file is not sent to the Job.
+
+### Databricks App
+
+The `databricks_app` folder contains a Streamlit app for browsing saved anomaly
+runs on an interactive map and table. Deploy that folder as a Databricks App,
+attach a SQL warehouse resource using the key `sql-warehouse`, and grant the
+app service principal `USE CATALOG`, `USE SCHEMA`, and `SELECT` on
+`workspace.utah_housing.housing_anomalies`. See
+[`databricks_app/README.md`](./databricks_app/README.md) for deployment steps.
+
+`databricks_connect.py` remains a separate smoke test for connecting to a
+Databricks workspace from a local development environment.
+
+### Databricks Connect development environment
+
+The project's `.venv` uses Python 3.14.2. Do not install Databricks Connect
+16.1.7 into it: that release requires `numpy<2`, and pip may try to compile
+NumPy from source instead of finding a compatible Python 3.14 wheel. On Windows,
+create a separate environment with a Python version supported by both your
+Databricks Connect release and target compute. For example, with Python 3.12
+installed and Databricks Runtime/Connect 16.1.7:
+
+```powershell
+py -3.12 -m venv .venv-dbx
+.\.venv-dbx\Scripts\python.exe -m pip install --upgrade pip
+.\.venv-dbx\Scripts\python.exe -m pip install "databricks-connect==16.1.7" "pyarrow==19.0.1" python-dotenv
+.\.venv-dbx\Scripts\python.exe .\databricks_connect.py
+```
+
+Use `python-dotenv`, not the separate `dotenv` distribution. The Connect
+version must match your Databricks compute; check Databricks' compatibility
+matrix before choosing a version. Pinning PyArrow avoids a NumPy 1.x/2.x
+mismatch with Connect 16.1.7. The connection script uses your Databricks CLI
+profile by default, or accepts the environment variables described in
+`databricks_connect.py`.
+
+To create a local OAuth profile, install the official Databricks CLI with
+`winget install Databricks.DatabricksCLI`, restart PowerShell, and run:
+
+```powershell
+databricks auth login --host https://<your-workspace-host> --profile UTAH
+.\.venv-dbx\Scripts\python.exe .\databricks_connect.py --profile UTAH
+```
+
+The login flow opens a browser; never paste a password, personal access token,
+or OAuth token into source code or chat.
